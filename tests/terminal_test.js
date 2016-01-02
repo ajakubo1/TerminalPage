@@ -5,5 +5,5 @@
 var expect = chai.expect;
 
 describe("Terminal", function () {
-
+    var terminal;
 });

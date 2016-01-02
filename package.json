@@ -1,0 +1,40 @@
+{
+  "name": "terminal-page",
+  "version": "1.0.0",
+  "description": "An alternative to normal web page design",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "gamegine": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1"
+  },
+  "scripts": {
+    "test": "echo \"You have to run tests/index.html in a browser for running tests\" && exit 1",
+    "prepublish": "cp src/terminal.js . ; uglifyjs terminal.js -c -m --source-map terminal.map -o terminal.min.js",
+    "postpublish": "rm terminal.js terminal.map terminal.min.js",
+    "precommit": "uglifyjs src/terminal.js -c -m --source-map src/terminal.map -o src/terminal.min.js",
+    "commit": "git add . && git commit -m "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajakubo1/TerminalPage.git"
+  },
+  "keywords": [
+    "unique",
+    "web",
+    "page",
+    "alternative",
+    "canvas",
+    "funny"
+  ],
+  "author": "Adam Jakubowski <ajakubo1@gmail.com> (http://thedimgames.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajakubo1/TerminalPage/issues"
+  },
+  "homepage": "https://github.com/ajakubo1/TerminalPage#readme"
+}
