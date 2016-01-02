@@ -6,36 +6,34 @@
 /**
  *
  * @param config
+ * @param config.width - canvas width
+ * @param config.height - canvas height
  * @constructor
  */
 var Terminal = function (config) {
 
     var self = this;
+    this.width = config.width;
+    this.height = config.height;
 
-    this.resized = function () {
+    this.gamegine = new GAMEGINE({
+        canvas: 'terminal',
+        width: this.width,
+        height: this.height,
+        fps: 60,
+        ops: 60
+    }, this);
+    this.gamegine.start();
+};
 
-    };
+Terminal.prototype.logic = function () {
 
-    this.run = function (frameTime) {
-        if (self.running) {
-            var tickCount = Math.floor((frameTime - self.updateTime) / self.tickLength), i;
-            if (tickCount > 0) {
+};
 
-                self.updateTime += tickCount * self.tickLength;
+Terminal.prototype.render = function (context) {
 
-                self.tickCount += tickCount;
+};
 
-                if(self.tickCount > self.tickMax) {
-                    self.tickCount = 0;
-                }
+Terminal.prototype.init = function (context) {
 
-                for (i = 0; i < self.buttons.length; i += 1) {
-                    self.buttons[i].redrawBackground(self.tickCount);
-                }
-
-                self.redrawButtons();
-            }
-            window.requestAnimationFrame(self.run);
-        }
-    };
 };
